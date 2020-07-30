@@ -1,4 +1,5 @@
 <?php
+      require_once("home.html");
       $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
       $server = $url["host"];
@@ -34,6 +35,6 @@ else
   echo "Inserted";
 }
 
-header("refresh:2000; url=index.html");
+header("refresh:2000; url=home.html");
 
 ?>
