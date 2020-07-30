@@ -1,12 +1,19 @@
 <?php
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-      $con = mysqli_connect('127.0.0.1','root','');
+      $server = $url["host"];
+      $username = $url["user"];
+      $password = $url["pass"];
+      $db = substr($url["path"], 1);
+      
+      $con = new mysqli($server, $username, $password, $db);
+      // $con = mysqli_connect('127.0.0.1','root','');
 
       if(!$con){
   echo 'Not connected to server';
          }
 
-         if(!mysqli_select_db($con,'Form_details')){
+         if(!mysqli_select_db($con,'heroku_22bbb7fbf9a5f13')){
   echo "Data Base is not connected";
           }
   
