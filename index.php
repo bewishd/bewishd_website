@@ -26,14 +26,15 @@
           $Star = filter_input(INPUT_POST, 'star');
 
   $sql = "INSERT INTO details(FullName,Email,Instagram,DOB,Hobbies,Star) VALUES ('$FullName','$Email','$insta','$DOB','$Hobbies','$Star')";
-  if(!mysqli_query($con, $sql))
-  {
-    echo "Not Connected";
-  }
-else
-{
-  echo "Inserted";
-}
+  mysqli_query($con, $sql);
+  // if(!mysqli_query($con, $sql))
+//   {
+//     echo "Not Connected";
+//   }
+// else
+// {
+//   echo "Inserted";
+// }
 
 header("refresh:2000; url=home.html");
 
